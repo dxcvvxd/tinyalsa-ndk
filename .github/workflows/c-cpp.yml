@@ -8,6 +8,7 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+  workflow_dispatch:
 
 jobs:
   build-android:
@@ -29,7 +30,7 @@ jobs:
         # r26b chosen to support newer Android API levels (Android 15 / API 35)
         run: |
           set -eux
-          NDK_VERSION="r26b"
+          NDK_VERSION="r29"
           NDK_ZIP="android-ndk-${NDK_VERSION}-linux.zip"
           NDK_URL="https://dl.google.com/android/repository/${NDK_ZIP}"
           curl -fsSL "$NDK_URL" -o "$NDK_ZIP"
